@@ -7,7 +7,7 @@ HOST_OS=linux-x86_64
 
 echo "compiling for architecture: $1"
 
-cd libllvm
+cd libllvm/clang
 
 ls
 
