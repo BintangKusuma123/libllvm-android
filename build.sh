@@ -9,6 +9,8 @@ echo "compiling for architecture: $1"
 
 cd libllvm
 
+ls
+
 mkdir buildcmake
 cd buildcmake
 
