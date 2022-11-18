@@ -32,8 +32,9 @@ case "$1" in
         export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
         export STRIP=$TOOLCHAIN/bin/llvm-strip
         CMAKEOPTIONS=-DCMAKE_C_FLAGS=$CFLAGS -DCMAKE_CXX_FLAGS=$CFLAGS -DLLVM_ENABLE_PROJECTS=clang -DLLVM_ENABLE_TERMINFO=ON -DLLVM_ENABLE_THREADS=ON -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="ARM" -DLIBCLANG_BUILD_STATIC=ON -DLLVM_INCLUDE_TESTS=OFF -DLLVM_ENABLE_ZLIB=OFF -DCMAKE_CROSSCOMPILING=True -DLLVM_DEFAULT_TARGET_TRIPLE=armv7a-linux-androideabi -DLLVM_TARGET_ARCH=ARM -DLLVM_ENABLE_PIC=True -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake
-        cmake $CMAKEOPTIONS ..
-        cmake --build . --config Release
+        cmake -G Ninja $CMAKEOPTIONS ..
+        # cmake --build . --config Release
+        ninja
         ;;
     armv8-a)
         export CFLAGS="-m64 -O2"
@@ -49,8 +50,9 @@ case "$1" in
         export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
         export STRIP=$TOOLCHAIN/bin/llvm-strip
         CMAKEOPTIONS=-DCMAKE_C_FLAGS=$CFLAGS -DCMAKE_CXX_FLAGS=$CFLAGS -DLLVM_ENABLE_PROJECTS=clang -DLLVM_ENABLE_TERMINFO=ON -DLLVM_ENABLE_THREADS=ON -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="ARM64" -DLIBCLANG_BUILD_STATIC=ON -DLLVM_INCLUDE_TESTS=OFF -DLLVM_ENABLE_ZLIB=OFF -DCMAKE_CROSSCOMPILING=True -DLLVM_DEFAULT_TARGET_TRIPLE=aarch64-linux-android -DLLVM_TARGET_ARCH=ARM64 -DLLVM_ENABLE_PIC=True -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake
-        cmake $CMAKEOPTIONS ..
-        cmake --build . --config Release
+        cmake -G Ninja $CMAKEOPTIONS ..
+        # cmake --build . --config Release
+        ninja
         ;;
     x86-android)
         export CFLAGS="-m32 -O2"
@@ -66,8 +68,9 @@ case "$1" in
         export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
         export STRIP=$TOOLCHAIN/bin/llvm-strip
         CMAKEOPTIONS=-DCMAKE_C_FLAGS=$CFLAGS -DCMAKE_CXX_FLAGS=$CFLAGS -DLLVM_ENABLE_PROJECTS=clang -DLLVM_ENABLE_TERMINFO=ON -DLLVM_ENABLE_THREADS=ON -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86" -DLIBCLANG_BUILD_STATIC=ON -DLLVM_INCLUDE_TESTS=OFF -DLLVM_ENABLE_ZLIB=OFF -DCMAKE_CROSSCOMPILING=True -DLLVM_DEFAULT_TARGET_TRIPLE=i686-linux-android -DLLVM_TARGET_ARCH=X86 -DLLVM_ENABLE_PIC=True -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake
-        cmake $CMAKEOPTIONS ..
-        cmake --build . --config Release
+        cmake -G Ninja $CMAKEOPTIONS ..
+        # cmake --build . --config Release
+        ninja
         ;;
     x86_64-android)
         export CFLAGS="-m64 -O2"
@@ -83,8 +86,9 @@ case "$1" in
         export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
         export STRIP=$TOOLCHAIN/bin/llvm-strip
         CMAKEOPTIONS=-DCMAKE_C_FLAGS=$CFLAGS -DCMAKE_CXX_FLAGS=$CFLAGS -DLLVM_ENABLE_PROJECTS=clang -DLLVM_ENABLE_TERMINFO=ON -DLLVM_ENABLE_THREADS=ON -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86_64" -DLIBCLANG_BUILD_STATIC=ON -DLLVM_INCLUDE_TESTS=OFF -DLLVM_ENABLE_ZLIB=OFF -DCMAKE_CROSSCOMPILING=True -DLLVM_DEFAULT_TARGET_TRIPLE=x86_64-linux-android -DLLVM_TARGET_ARCH=X86_64 -DLLVM_ENABLE_PIC=True -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake
-        cmake $CMAKEOPTIONS ..
-        cmake --build . --config Release
+        cmake -G Ninja $CMAKEOPTIONS ..
+        # cmake --build . --config Release
+        ninja
         ;;
     #x86_64-linux)
         #export CFLAGS="-m64 -O2"
