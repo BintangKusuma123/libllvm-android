@@ -22,7 +22,7 @@ jobs:
           sudo apt install gcc-multilib -y
           sudo apt install dos2unix -y
           sudo apt install ninja-build -y
-          sudo apt install libllvm -y
+          sudo apt install llvm -y
           git clone https://github.com/llvm/llvm-project libllvm
           sudo chmod -R 777 *
           dos2unix build.sh
